@@ -20,8 +20,3 @@ npm run build
 ## 🌐 Live Demo
 
 👉 [View Portfolio](https://ayanjaved.github.io/ayan-portfolio/)
-
-```
-
-Do you want me to also add screenshots (optional), or keep it text-only?
-```
