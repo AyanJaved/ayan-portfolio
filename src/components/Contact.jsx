@@ -40,65 +40,62 @@ export default function Contact() {
             Open to internships, freelance, and collabs. Reach me on your favorite platform.
           </motion.p>
 
-          {/* Single-line chips with graceful overflow on very small screens */}
+          {/* Responsive chips */}
           <motion.div
-  variants={container}
-  className="mt-8 overflow-x-auto no-scrollbar flex justify-center"
->
+            variants={container}
+            className="mt-8 flex flex-wrap justify-center gap-4"
+          >
+            <motion.a
+              variants={item}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              href="https://www.linkedin.com/in/Ayan-Javed"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className="flex items-center gap-3 rounded-full px-5 py-3
+                         font-medium text-white shadow ring-1 ring-black/10
+                         bg-gradient-to-r from-blue-600 to-blue-500
+                         hover:shadow-lg transition-all w-full sm:w-auto justify-center"
+            >
+              <FaLinkedin className="text-white" />
+              <span className="tracking-wide">LinkedIn</span>
+            </motion.a>
 
-            <div className="inline-flex gap-4">
-              <motion.a
-                variants={item}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                href="https://www.linkedin.com/in/Ayan-Javed"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                title="LinkedIn"
-                className="group inline-flex items-center gap-3 rounded-full px-5 py-3
-                           font-medium text-white shadow ring-1 ring-black/10
-                           bg-gradient-to-r from-blue-600 to-blue-500
-                           hover:shadow-lg transition-all"
-              >
-                <FaLinkedin className="text-white" />
-                <span className="tracking-wide">LinkedIn</span>
-              </motion.a>
+            <motion.a
+              variants={item}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              href="https://github.com/AyanJaved"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+              className="flex items-center gap-3 rounded-full px-5 py-3
+                         font-medium text-white shadow ring-1 ring-black/10
+                         bg-gradient-to-r from-gray-900 to-gray-700
+                         hover:shadow-lg transition-all w-full sm:w-auto justify-center"
+            >
+              <FaGithub className="text-white" />
+              <span className="tracking-wide">GitHub</span>
+            </motion.a>
 
-              <motion.a
-                variants={item}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                href="https://github.com/AyanJaved"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                title="GitHub"
-                className="group inline-flex items-center gap-3 rounded-full px-5 py-3
-                           font-medium text-white shadow ring-1 ring-black/10
-                           bg-gradient-to-r from-gray-900 to-gray-700
-                           hover:shadow-lg transition-all"
-              >
-                <FaGithub className="text-white" />
-                <span className="tracking-wide">GitHub</span>
-              </motion.a>
-
-              <motion.a
-                variants={item}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                href="mailto:9307ayan@gmail.com"
-                aria-label="Email"
-                title="Email"
-                className="group inline-flex items-center gap-3 rounded-full px-5 py-3
-                           font-medium text-white shadow ring-1 ring-black/10
-                           bg-gradient-to-r from-rose-600 to-red-500
-                           hover:shadow-lg transition-all"
-              >
-                <MdEmail className="text-white" />
-                <span className="tracking-wide">Gmail</span>
-              </motion.a>
-            </div>
+            <motion.a
+              variants={item}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              href="mailto:9307ayan@gmail.com"
+              aria-label="Email"
+              title="Email"
+              className="flex items-center gap-3 rounded-full px-5 py-3
+                         font-medium text-white shadow ring-1 ring-black/10
+                         bg-gradient-to-r from-rose-600 to-red-500
+                         hover:shadow-lg transition-all w-full sm:w-auto justify-center"
+            >
+              <MdEmail className="text-white" />
+              <span className="tracking-wide">Gmail</span>
+            </motion.a>
           </motion.div>
 
           {/* Subtle helper text */}
@@ -106,7 +103,10 @@ export default function Contact() {
             variants={item}
             className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400"
           >
-            Prefer quick mail? <a href="mailto:your-email@gmail.com" className="underline hover:opacity-80">9307ayan@gmail.com</a>
+            Prefer quick mail?{" "}
+            <a href="mailto:9307ayan@gmail.com" className="underline hover:opacity-80">
+              9307ayan@gmail.com
+            </a>
           </motion.p>
         </motion.div>
       </div>

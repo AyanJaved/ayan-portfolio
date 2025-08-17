@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { motion, useScroll } from "framer-motion";
+import { Menu, X } from "lucide-react"; // icons for menu toggle
 
 export default function Navbar() {
   const links = ["Home", "About", "Projects", "Contact"];
   const { scrollYProgress } = useScroll(); // scroll progress 0 → 1
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="fixed w-full bg-gray-900 text-white shadow-lg z-50">
@@ -16,8 +19,8 @@ export default function Navbar() {
           Ayan Portfolio
         </motion.h1>
 
-        {/* Nav links */}
-        <ul className="flex gap-8 text-lg font-medium">
+        {/* Desktop Nav Links */}
+        <ul className="hidden md:flex gap-8 text-lg font-medium">
           {links.map((link, idx) => (
             <motion.li
               key={idx}
@@ -25,15 +28,47 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
               className="cursor-pointer relative group"
             >
-              <a href={`#${link.toLowerCase()}`} className="hover:text-blue-400">
+              <a
+                href={`#${link.toLowerCase()}`}
+                className="hover:text-blue-400"
+                onClick={() => setIsOpen(false)} // close menu on click
+              >
                 {link}
               </a>
-              {/* underline animation */}
               <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
             </motion.li>
           ))}
         </ul>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          className="md:hidden focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <motion.ul
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden flex flex-col gap-6 bg-gray-800 text-lg font-medium p-6"
+        >
+          {links.map((link, idx) => (
+            <li key={idx} className="cursor-pointer">
+              <a
+                href={`#${link.toLowerCase()}`}
+                className="block hover:text-blue-400"
+                onClick={() => setIsOpen(false)} // close menu on link click
+              >
+                {link}
+              </a>
+            </li>
+          ))}
+        </motion.ul>
+      )}
 
       {/* Scroll progress bar with gradient */}
       <motion.div
